@@ -33,8 +33,6 @@ def MillerRabin(n, k = 50):
             return False
     return True
 
-
-for i in range(100):
-    r = random.randint(1,100)
-    if (MillerRabin(r) == True):
-        print("Prime",r)
+# for i in range(10000):
+#     if MillerRabin(i):
+#         print(i)
