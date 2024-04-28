@@ -16,10 +16,3 @@ def modulo(dividend, divisor):
         divisor >>= 1
     
     return rem
-    
-
-# n = gmpy2.mpz(12345)
-# m = gmpy2.mpz(987)
-
-# print(modulo(n, m))
-# print(n%m)

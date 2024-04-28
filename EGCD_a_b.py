@@ -2,21 +2,21 @@ import gmpy2
 from basic_ops import modulo, power
 #Fast modular exponentiation to calucate powers
 
-def power_a_raised_b(a,b):
-    result=1
+# def power_a_raised_b(a,b):
+#     result=1
 
-    #Because we always end up with even powers of a.
-    if (modulo.modulo(b,2)):
-        result=a
+#     #Because we always end up with even powers of a.
+#     if (modulo.modulo(b,2)):
+#         result=a
 
-    while(b != 0):
-        b = b>>1
-        a = gmpy2.mul(a,a)
+#     while(b != 0):
+#         b = b>>1
+#         a = gmpy2.mul(a,a)
 
-        if(modulo.modulo(b,2)):
-            result = power.mul(result,a)
+#         if(modulo.modulo(b,2)):
+#             result = power.mul(result,a)
 
-    return result
+#     return result
 
 #Binary EGCD. Returns only gcd,s,t such that s*a+t*b=d where d=gcd(a,b)
 def BinaryEGCD(a,b):
@@ -41,7 +41,7 @@ def BinaryEGCD(a,b):
     t_prime = 1
 
     while (r_prime != 0):
-
+        print(s,s_prime,t,t_prime)
         while (modulo.modulo(r,2) == 0):
             r = r >> 1
             if (not(modulo.modulo(s,2) == 0 and modulo.modulo(t,2) == 0)):
@@ -49,14 +49,20 @@ def BinaryEGCD(a,b):
                 t = t - a
             s = s >> 1
             t = t >> 1
+            assert(s*a + t*b == r)
 
         while (modulo.modulo(r_prime,2) == 0):
             r_prime = r_prime >> 1
+
             if not(modulo.modulo(s_prime,2) == 0 and modulo.modulo(t_prime,2) == 0):
+                
                 s_prime = s_prime + b
                 t_prime = t_prime - a
+
             s_prime = s_prime >> 1
             t_prime = t_prime >> 1
+
+            assert(s_prime*a + t_prime*b == r_prime)
 
         if(r > r_prime):
             r, r_prime = r_prime, r
@@ -67,7 +73,10 @@ def BinaryEGCD(a,b):
         s_prime = s_prime - s
         t_prime = t_prime - t
 
-    return power.power(2,e)*r,s,t
+    return (power.power(2,e)*r,s,t)
     
 
-print(BinaryEGCD(1243,2373))
+print(BinaryEGCD(15733,15223))
+
+# print(15223*(8290) + 15733*(-8021))
+
