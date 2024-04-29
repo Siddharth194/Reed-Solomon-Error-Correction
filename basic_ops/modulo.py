@@ -27,5 +27,3 @@ def modulo(dividend, divisor):
         rem = divisor + rem
     
     return rem
-
-print(modulo(-34,15))
