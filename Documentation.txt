@@ -1,5 +1,5 @@
 Steps to Execute:
-1. Execute main
+1. python3 main.py
 
 Files:
 -> Global_setup.py: This file includes an object of with the default values as defined in global_variable_setup.py and generates the pi_array and dumps it into 'global_vars.bin' file.
