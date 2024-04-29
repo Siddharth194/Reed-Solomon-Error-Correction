@@ -1,6 +1,7 @@
 import gmpy2
 from basic_ops import modulo, power
 
+#Returns the ri,si,ti sequence.
 def BinaryEGCD(a,b):
     orig_a = a
     orig_b = b
@@ -15,7 +16,7 @@ def BinaryEGCD(a,b):
 
     a = r
     b = r_prime
-    
+
     s = 1
     s_prime = 0
 
@@ -28,22 +29,19 @@ def BinaryEGCD(a,b):
             if (not(modulo.modulo(s,2) == 0 and modulo.modulo(t,2) == 0)):
                 s = s + b
                 t = t - a
+
             s = s >> 1
             t = t >> 1
-            # assert(s*a + t*b == r)
 
         while (modulo.modulo(r_prime,2) == 0):
             r_prime = r_prime >> 1
 
             if not(modulo.modulo(s_prime,2) == 0 and modulo.modulo(t_prime,2) == 0):
-                
                 s_prime = s_prime + b
                 t_prime = t_prime - a
 
             s_prime = s_prime >> 1
             t_prime = t_prime >> 1
-
-            # assert(s_prime*a + t_prime*b == r_prime)
 
         if(r > r_prime):
             r, r_prime = r_prime, r
