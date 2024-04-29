@@ -32,7 +32,3 @@ def MillerRabin(n, k = 50):
         else:
             return False
     return True
-
-# for i in range(10000):
-#     if MillerRabin(i):
-#         print(i)
