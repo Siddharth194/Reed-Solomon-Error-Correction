@@ -1,3 +1,7 @@
+GROUP MEMBERS:
+1. Siddharth Menon - IMT2022001
+2. Vrajnandak Nangunoori - IMT2022527
+
 Steps to Execute:
 1. python3 main.py
 
