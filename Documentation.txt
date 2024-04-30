@@ -2,7 +2,7 @@ Steps to Execute:
 1. python3 main.py
 
 Files:
--> Global_setup.py: This file includes an object of with the default values as defined in global_variable_setup.py and generates the pi_array and dumps it into 'global_vars.bin' file.
+-> Global_setup.py: This file includes an object of class 'Global_Variables', with the default values as defined in global_variable_setup.py and generates the pi_array and dumps it into 'global_vars.bin' file.
 -> ReedSolomonTransmit.py: Reads the global variables from the 'global_vars.bin' file and corrupts some of the indices based on the corruption factor read from the 'global_vars.bin' file. The corrupted sequence is now dumped into the 'channel.bin' file.
 -> ReedSolomonSend.py: Reads the global variables from the 'global_vars.bin' file, selects a message to be generated along with it's modulo from the pi_array. It then calls Transmit() to send it to the receiver.
 -> ReedSolomonReceive: Reads the global variables from the 'global_vars.bin' file and also reads the corrupted sequence from the 'channel.bin' file. It now performs CRT on the corrupted sequence along with the pi_array. Now, it uses reconstruction to try to reconstruct the original message and prints appropriately whether the message can be reconstructed properly or not.
