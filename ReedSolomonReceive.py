@@ -29,9 +29,11 @@ def ReedSolomonReceive():
 
     #Generating P as the product of 'l' largest primes.
     P=1
+
     pi_sort=global_variables.pi_array
     pi_sort.sort()
     pi_sort=pi_sort[::-1]
+
     for i in range(0,len(pi_sort)):
         if(l==0):
             break
@@ -43,7 +45,7 @@ def ReedSolomonReceive():
     t_asterisk=P
 
     #Applying Thues lemma to get the required r',s',t'.
-    r_prime,q_prime,s_prime,t_prime=Thues(ri_seq,qi_seq,si_seq,ti_seq,r_asterisk,t_asterisk)
+    r_prime,q_prime,s_prime,t_prime = Thues(ri_seq,qi_seq,si_seq,ti_seq,r_asterisk,t_asterisk)
 
     #Checking if the message can be reconstructed and printing appropriately.
     if(modulo(r_prime,t_prime)==0):
